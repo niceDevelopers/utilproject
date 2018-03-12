@@ -1,4 +1,4 @@
-package com.fiany.utilproject.Bean;
+package com.fiany.utilproject.bean;
 
 public class UserBean {
     private String userId;

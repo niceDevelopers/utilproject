@@ -43,17 +43,7 @@ public class RedisUtil {
         }
     }
 
-    /**
-     * 返还到连接池
-     *
-     * @param pool
-     * @param redis
-     */
-    public static void returnResource(JedisPool pool, Jedis redis) {
-        if (redis != null) {
-            pool.returnResource(redis);
-        }
-    }
+
 
     /**
      * 获取数据
@@ -201,9 +191,7 @@ public class RedisUtil {
             e.printStackTrace();
         } finally {
             // 释放redis对象
-            pool.returnBrokenResource(jedis);
-            // 返还到连接池
-            returnResource(pool, jedis);
+            jedis.close();
         }
 
         return result;
